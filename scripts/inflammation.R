@@ -20,16 +20,21 @@ plot(avg_inflammation_patient)
 # Average inflammation per day
 plot(avg_inflammation_day)
 
+# Standard deviation by day
+std_inflammation_day = apply(data,2,sd)
+plot(std_inflammation_day)
+
 # Plot maximum inflammation per day
 max_inflammation_day <- apply(data,2, max)
-
 plot(max_inflammation_day)
 
 # And same again for minimum
-
 plot(apply(data,2,min))
 
 # Histogram of average patient inflammation
 hist(avg_inflammation_patient, breaks=seq(5,8,0.2))
+
+# Histogram of average inflammation by day
+hist(avg_inflammation_day,breaks=seq(0,14,1))
 
 
