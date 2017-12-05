@@ -2,4 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-*.txt
+
+# Exclude zipped data
+*.zip
