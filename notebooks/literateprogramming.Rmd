@@ -1,0 +1,39 @@
+---
+title: "Literate Programming"
+author: "Duncan Forgan"
+date: "6/12/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(ggplot2)
+
+# Path to data
+datapath <-paste("https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv",
+            sep = '')
+
+# Load data
+data <-read.table(datapath, sep=',',header=TRUE)
+
+
+```
+
+# Introduction
+
+We will present life expectancy over time in a set of countries using gapminder data imported from `r datapath`.
+
+## Plot of data
+
+Here is a plot of life expectancy over time
+
+```{r lifeex_plot}
+p<- ggplot(data, aes(x=year,y=lifeExp), colour=continent)
+p<- p + geom_line(aes(group=country)) + geom_point(alpha=0.2) 
+p  + facet_wrap(~continent)
+
+```
+
+
+

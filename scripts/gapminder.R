@@ -58,3 +58,22 @@ p <- p + geom_point(alpha=0.2) + scale_x_log10() + scale_y_log10()
 p + geom_density_2d() + facet_wrap(~continent)
 
 
+# dplyr - SQL-like techniques for filtering data
+# dplyr methods ("verbs")
+# select (choose data columns)
+# filter (logical indexing)
+# group by (group by factor)
+# summarize (do calculations on) useful examples: count, tally,  (n - gets current count in pipeline)
+# mutate (add new columns to the data)
+ 
+library(dplyr)
+
+country_lifeExp <- gapminder %>% group_by(country) %>% summarize(meanLE = mean(lifeExp))
+country_lifeExp %>% summarize(maxLE = max(meanLE))
+country_lifeExp %>% summarize(maxLE = max(meanLE))
+
+# Calculate GDP in $bn 
+
+gdp_bill <- gapminder %>% mutate(gdp_billion=gdpPercap*pop/1.0e9)
+
+
