@@ -63,4 +63,35 @@ l_named <- list(a="SWC",b=1:4)
 # Need to double [[]] to get to a given value
 
 
+# Logical Indexing: Indexing on a logical condition v[mask], v[v<7] etc
+
+v <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+mask <- c(TRUE, FALSE,TRUE,FALSE,TRUE)
+
+# data.frames are named lists of vectors - each vector is a 1D column of the 2D data
+# All columns must be the same length
+# Each column must only contain one specific type (but multiple columns can have differing types)
+# Character vectors automatically declared as factors
+# summary(df) gives global data for each column (depending on typeof(column))
+
+df <-data.frame(a=c(1,2,3), b=c('eeny','meeny','miney'), 
+                  c=c(TRUE,FALSE,TRUE))
+
+author_book <- data.frame(author_first = c('Charles','Ernst', 'Theodosius'), 
+                          author_last = c('Darwin', 'Mayr', 'Dobzhansky'),
+                          year = c(1859,1942,1970))
+
+# Use cbind to add new columns (i.e. fields) to the frame
+
+# Use rbind to add new rows (lists) to the frame 
+# may need to add extra factors if they appear (e.g. levels(df$b)<- c(levels(df$b),"mo")
+
+# df<- na.omit(df) removes rows with NA values
+
+# write data frame to file
+write.table(df, "data/df_example.tab", sep="\t")
+
+
+
+
 
